@@ -1,0 +1,13 @@
+language: csharp
+
+mono: none
+dotnet: 3.1
+
+before_build:
+    - nuget restore hw1/Tasks/Tasks.sln
+    
+build:
+    - dotnet build hw1/Tasks/Tasks.sln
+
+test_script:
+    - dotnet test hw1/Tasks/Tasks.sln
