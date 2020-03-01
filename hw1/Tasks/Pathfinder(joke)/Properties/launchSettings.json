@@ -1,12 +1,7 @@
 {
   "profiles": {
     "Pathfinder(joke)": {
-      "commandName": "Project",
-      "commandLineArgs": "matrix1.txt out.pdf",
-      "workingDirectory": "C:\\Users\\Пека\\Documents\\csharp",
-      "environmentVariables": {
-        "path": "C:\\Program Files (x86)\\Graphviz2.38\\bin\\"
-      }
+      "commandName": "Project"
     }
   }
 }
