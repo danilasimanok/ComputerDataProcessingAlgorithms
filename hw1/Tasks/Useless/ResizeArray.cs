@@ -19,7 +19,7 @@ namespace Useless
             ++this.count;
             if (this.count > this.content.Length)
             {
-                T[] newContent = new T[this.content.Length * 3 / 2];
+                T[] newContent = new T[this.content.Length * 3];
                 this.content.CopyTo(newContent, 0);
                 this.content = newContent;
             }

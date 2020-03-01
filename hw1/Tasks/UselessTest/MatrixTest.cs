@@ -32,21 +32,18 @@ namespace TasksTests
             this.matrix1 = new Matrix(table1);
             this.matrix2 = new Matrix(table2);
         }
-        
+
         [Test]
-        public void TestMatricesCreation() {
-            Assert.AreEqual(matrix0.GetContent(), this.table);
+        public void TestCorrectMatrixCreation() => Assert.AreEqual(matrix0.GetContent(), this.table);
+
+        [Test]
+        public void TestEmptyMatrixCreation() {
             int[][] invalid0 = new int[][] { },
             invalid1 = new int[][] {
                 new int[] { },
                 new int[] { },
                 new int[] { },
                 new int[] { }
-            },
-            invalid2 = new int[][] {
-                new int[] {1, 2, 3, 4},
-                new int[] {1, 2, 3},
-                new int[] {1, 2, 3, 4},
             };
             Assert.Throws<ArgumentException>(
                 delegate {
@@ -58,21 +55,31 @@ namespace TasksTests
                     new Matrix(invalid1);
                 }
                 );
+        }
+
+        [Test]
+        public void TestNotRectangleMatrixCreation() {
+            int[][] invalid = new int[][] {
+                new int[] {1, 2, 3, 4},
+                new int[] {1, 2, 3},
+                new int[] {1, 2, 3, 4},
+            };
             Assert.Throws<ArgumentException>(
                 delegate {
-                    new Matrix(invalid2);
+                    new Matrix(invalid);
                 }
                 );
         }
-        
+
         [Test]
-        public void TestMultiplication() {
-            Assert.AreEqual(this.matrix0 * this.matrix1, this.matrix2);
+        public void TestCorrectMultiplication() => Assert.AreEqual(this.matrix0 * this.matrix1, this.matrix2);
+
+        [Test]
+        public void TestInvalidMultiplication() =>
             Assert.Throws<ArgumentException>(
                 delegate {
                     Matrix m = this.matrix1 * this.matrix0;
                 }
                 );
-        }
     }
 }

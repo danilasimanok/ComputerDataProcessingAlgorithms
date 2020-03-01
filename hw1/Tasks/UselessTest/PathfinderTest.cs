@@ -27,8 +27,7 @@ namespace TasksTests
         }
 
         [Test]
-        public void GraphCreatorTest() {
-            
+        public void TestInvalidGraphCreation() {
             int[][] invalid = new int[][] {
                 new int[] {1, 2, 6},
                 new int[] {3, 4, 5}
@@ -37,6 +36,10 @@ namespace TasksTests
                 delegate {
                     new GraphCreator(new Matrix(invalid));
                 });
+        }
+
+        [Test]
+        public void TestCorrectGraphCreation() {
             Edge<int> edge0 = new Edge<int>(0, 3), 
                 edge1 = new Edge<int>(2, 4),
                 edge2 = new Edge<int>(4, 1);

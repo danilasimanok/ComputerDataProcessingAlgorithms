@@ -7,7 +7,7 @@ namespace Pathfinder_joke_
     public class GraphCreator
     {
         private int[][] matrix;
-        private AdjacencyGraph<int,Edge<int>> graph;
+        private ArrayAdjacencyGraph<int,Edge<int>> graph;
         private Func<Edge<int>, double> edgeCost;
         
         public GraphCreator(Matrix matrix) {
@@ -21,15 +21,14 @@ namespace Pathfinder_joke_
         public (IVertexAndEdgeListGraph<int, Edge<int>>, Func<Edge<int>, double>) GetResult() {
             if (this.graph != null)
                 return (this.graph.Clone(), this.edgeCost);
-            this.graph = new AdjacencyGraph<int, Edge<int>>();
+            AdjacencyGraph<int, Edge<int>> graph = new AdjacencyGraph<int, Edge<int>>();
             int i, j;
-            for (i = 0; i < this.matrix.Length; ++i)
-                this.graph.AddVertex(i);
             for (i = 0; i < this.matrix.Length; ++i)
                 for (j = 0; j < this.matrix[i].Length; ++j)
                     if (matrix[i][j] >= 0)
-                        this.graph.AddEdge(new Edge<int>(i, j));
+                        graph.AddVerticesAndEdge(new Edge<int>(i, j));
             this.edgeCost = edge => matrix[edge.Source][edge.Target];
+            this.graph = new ArrayAdjacencyGraph<int, Edge<int>>(graph);
             return this.GetResult();
         }
     }
