@@ -5,6 +5,7 @@ using QuickGraph;
 using QuickGraph.Algorithms;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace TasksTests
 {
@@ -24,6 +25,39 @@ namespace TasksTests
                     new int[] {10, -1, 10, 30, -1}
                 });
             (this.graph, this.edgeCost) = new GraphCreator(matrix).GetResult();
+        }
+
+        [Test]
+        public void TestExtremeCase1() {
+            Matrix matrix = new Matrix(
+                new int[][] {
+                    new int[] {-1}
+                });
+            TryFunc<int, IEnumerable<Edge<int>>> tryGetPath = this.createTryGetPath(matrix);
+            IEnumerable<Edge<int>> edges;
+            Assert.IsFalse(tryGetPath(0, out edges));
+        }
+
+        [Test]
+        public void TestExtremeCase2() {
+            Matrix matrix = new Matrix(
+                new int[][] {
+                    new int[] {-1, -1, -1, -1, -1},
+                    new int[] {-1, -1, -1, -1, -1},
+                    new int[] {-1, -1, -1, -1, -1},
+                    new int[] {-1, -1, -1, -1, -1},
+                    new int[] {-1, -1, -1, -1, -1}
+                });
+            TryFunc<int, IEnumerable<Edge<int>>> tryGetPath = this.createTryGetPath(matrix);
+            IEnumerable<Edge<int>> edges;
+            for (int i = 0; i < 5; ++i)
+                Assert.IsFalse(tryGetPath(i, out edges));
+        }
+
+        private TryFunc<int, IEnumerable<Edge<int>>> createTryGetPath(Matrix matrix) {
+            (IVertexAndEdgeListGraph<int, Edge<int>> graph,
+                Func<Edge<int>, double> edgeCost) = new GraphCreator(matrix).GetResult();
+            return graph.ShortestPathsDijkstra(edgeCost, 0);
         }
 
         [Test]
@@ -79,6 +113,15 @@ namespace TasksTests
                 patternHasNext = patternEnumerator.MoveNext();
             }
             return !(edgesHasNext || patternHasNext);
+        }
+
+        [Test]
+        public void TestPDFCreator() {
+            TryFunc<int, IEnumerable<Edge<int>>> tryGetPath = this.graph.ShortestPathsDijkstra(this.edgeCost, 0);
+            DotGenerator<int, Edge<int>> generator = new DotGenerator<int, Edge<int>>(graph, tryGetPath);
+            (new PDFGenerator(generator.GetDotCode(), "test.pdf")).GeneratePDF();
+            FileAssert.Exists("test.pdf");
+            File.Delete("test.pdf");
         }
     }
 }

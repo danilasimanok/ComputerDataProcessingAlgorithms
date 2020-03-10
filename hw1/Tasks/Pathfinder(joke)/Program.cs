@@ -17,18 +17,7 @@ namespace Pathfinder_joke_
                 Func<Edge<int>, double> edgeCost) = new GraphCreator(MatrixReader.ReadMatrix(path)).GetResult();
             TryFunc<int, IEnumerable<Edge<int>>> tryGetPath = graph.ShortestPathsDijkstra(edgeCost, 0);
             DotGenerator<int, Edge<int>> generator = new DotGenerator<int, Edge<int>>(graph, tryGetPath);
-            String dot = generator.GetDotCode(),
-                output = args[1] + ".temp";
-            using (FileStream fs = new FileStream(output, FileMode.OpenOrCreate))
-                fs.Write(System.Text.Encoding.Default.GetBytes(dot));
-            using (Process process = new Process()) {
-                process.StartInfo.FileName = "dot";
-                process.StartInfo.Arguments = "-Tpdf -o" + args[1] + " " + output;
-                process.Start();
-                while (!process.HasExited)
-                    process.Refresh();
-            }
-            File.Delete(output);
+            (new PDFGenerator(generator.GetDotCode(), args[1])).GeneratePDF();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Pathfinder_joke_
 {
-    class DotGenerator<TVertex, TEdge>
+    public class DotGenerator<TVertex, TEdge>
         where TEdge : IEdge<TVertex>
     {
         private IVertexAndEdgeListGraph<TVertex, TEdge> graph;

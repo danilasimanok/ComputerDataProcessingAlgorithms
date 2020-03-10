@@ -8,7 +8,7 @@ namespace MatrixMultiplier
     {
         public static Matrix ReadMatrix(String fileName) {
             List<int[]> lines = new List<int[]>();
-            using (StreamReader reader = new StreamReader(fileName)) {
+            using (StreamReader reader = File.OpenText(fileName)) {
                 String str = reader.ReadLine();
                 int i;
                 while (str != null) {
