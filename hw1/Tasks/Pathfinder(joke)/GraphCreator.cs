@@ -20,7 +20,7 @@ namespace Pathfinder_joke_
 
         public (IVertexAndEdgeListGraph<int, Edge<int>>, Func<Edge<int>, double>) GetResult() {
             if (this.graph != null)
-                return (this.graph.Clone(), this.edgeCost);
+                return (this.graph, this.edgeCost);
             AdjacencyGraph<int, Edge<int>> graph = new AdjacencyGraph<int, Edge<int>>();
             int i, j;
             for (i = 0; i < this.matrix.Length; ++i)
