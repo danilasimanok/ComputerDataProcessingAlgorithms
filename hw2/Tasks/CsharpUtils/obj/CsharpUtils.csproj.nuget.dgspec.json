@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\Tasks\\Tasks.csproj": {}
+    "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\CsharpUtils\\CsharpUtils.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\Tasks\\Tasks.csproj": {
+    "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\CsharpUtils\\CsharpUtils.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\Tasks\\Tasks.csproj",
-        "projectName": "Tasks",
-        "projectPath": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\Tasks\\Tasks.csproj",
+        "projectUniqueName": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\CsharpUtils\\CsharpUtils.csproj",
+        "projectName": "CsharpUtils",
+        "projectPath": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\CsharpUtils\\CsharpUtils.csproj",
         "packagesPath": "C:\\Users\\Пека\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\Tasks\\obj\\",
+        "outputPath": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\CsharpUtils\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

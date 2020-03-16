@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Utils", "Utils\Utils.fsproj", "{D34BBEBB-CE1E-4512-92D9-83DF64191246}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{52830D00-83DB-453A-876D-498436827648}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpUtils", "CsharpUtils\CsharpUtils.csproj", "{8F51DBD6-139F-4709-A542-DC20C2810113}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsharpUtils", "FsharpUtils\FsharpUtils.fsproj", "{C5606622-0351-4447-B6EE-B5823891EEA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D34BBEBB-CE1E-4512-92D9-83DF64191246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D34BBEBB-CE1E-4512-92D9-83DF64191246}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D34BBEBB-CE1E-4512-92D9-83DF64191246}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D34BBEBB-CE1E-4512-92D9-83DF64191246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F51DBD6-139F-4709-A542-DC20C2810113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F51DBD6-139F-4709-A542-DC20C2810113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F51DBD6-139F-4709-A542-DC20C2810113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F51DBD6-139F-4709-A542-DC20C2810113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5606622-0351-4447-B6EE-B5823891EEA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5606622-0351-4447-B6EE-B5823891EEA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5606622-0351-4447-B6EE-B5823891EEA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5606622-0351-4447-B6EE-B5823891EEA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8F51DBD6-139F-4709-A542-DC20C2810113} = {52830D00-83DB-453A-876D-498436827648}
+		{C5606622-0351-4447-B6EE-B5823891EEA5} = {52830D00-83DB-453A-876D-498436827648}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {098373A6-CD9E-430D-A156-B9AB7234C293}
+		SolutionGuid = {41797BDB-8FBC-4D94-9D6C-5191FBAD568E}
 	EndGlobalSection
 EndGlobal

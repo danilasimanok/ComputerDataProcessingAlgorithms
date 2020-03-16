@@ -113,11 +113,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\Utils\\Utils.fsproj",
-      "projectName": "Utils",
-      "projectPath": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\Utils\\Utils.fsproj",
+      "projectUniqueName": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\FsharpUtils\\FsharpUtils.fsproj",
+      "projectName": "FsharpUtils",
+      "projectPath": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\FsharpUtils\\FsharpUtils.fsproj",
       "packagesPath": "C:\\Users\\Пека\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\Utils\\obj\\",
+      "outputPath": "C:\\Users\\Пека\\source\\repos\\homework(Grigoriev)\\hw2\\Tasks\\FsharpUtils\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
