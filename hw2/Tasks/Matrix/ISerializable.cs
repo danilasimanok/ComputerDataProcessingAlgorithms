@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace CsharpUtils
+namespace Matrix
 {
-    interface ISerializable
+    public interface ISerializable
     {
         public void FromWord(String word);
 
