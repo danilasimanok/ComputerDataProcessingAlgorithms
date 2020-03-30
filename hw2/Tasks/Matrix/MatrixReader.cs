@@ -16,7 +16,7 @@ namespace Matrix
 
         public T[][] GetResult() {
             if (this.result != null)
-                return (T[][])this.result.Clone();
+                return TableCopier<T>.Copy(this.result);
             List<T[]> lines = new List<T[]>();
             foreach (String str in File.ReadLines(this.input)) {
                 if (str.Length == 0)

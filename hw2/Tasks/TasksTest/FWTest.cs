@@ -14,7 +14,7 @@ namespace TasksTest
                 new Str[] {new Str("infty"), new Str("infty"), new Str("a")},
                 new Str[] {new Str("lool"), new Str("a"), new Str("infty")}
             },
-            result = FloydWarshallExecutor<Str>.Execute(origin, new StrSemigroup()),
+            result = FloydWarshallExecutor<Str>.Execute(new Matrix<Str>(origin), new StrSemigroup()).GetTable(),
             pattern = new Str[][] {
                 new Str[] {new Str("infty"), new Str("bb"), new Str("bba")},
                 new Str[] {new Str("infty"), new Str("aa"), new Str("a")},

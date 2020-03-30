@@ -12,18 +12,22 @@ namespace TransitiveClosure
             String input = Console.ReadLine(),
                 output = Console.ReadLine(),
                 dotfile = output + ".tmp";
-            Boolean[][] origin = new MatrixReader<Boolean>(input).GetResult(),
-                result = FloydWarshallExecutor<Boolean>.Execute(origin, new BooleanSemigroup());
-            DotGenerator.createDot(origin, result, dotfile);
-            using (Process process = new Process())
-            {
-                process.StartInfo.FileName = "dot";
-                process.StartInfo.Arguments = "-Tpdf -o" + output + " " + dotfile;
-                process.Start();
-                while (!process.HasExited)
-                    process.Refresh();
+            try {
+                Boolean[][] origin = new MatrixReader<Boolean>(input).GetResult(),
+                    result = FloydWarshallExecutor<Boolean>.Execute(new Matrix<Boolean>(origin), new BooleanSemigroup()).GetTable();
+                DotGenerator.createDot(origin, result, dotfile);
+                using (Process process = new Process())
+                {
+                    process.StartInfo.FileName = "dot";
+                    process.StartInfo.Arguments = "-Tpdf -o" + output + " " + dotfile;
+                    process.Start();
+                    while (!process.HasExited)
+                        process.Refresh();
+                }
+                File.Delete(dotfile);
+            } catch (Exception exception) {
+                Console.WriteLine(exception.Message);
             }
-            File.Delete(dotfile);
         }
     }
 }
