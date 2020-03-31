@@ -15,7 +15,7 @@ namespace MatrixMultiplier
             try {
                 Matrix<Natural> m1 = new Matrix<Natural>(t1),
                     m2 = new Matrix<Natural>(t2);
-                Matrix<Natural> m = Matrix<Natural>.multiply(m1, m2, new NaturalSemiring());
+                Matrix<Natural> m = Matrix<Natural>.Multiply(m1, m2, new NaturalSemiring());
                 MatrixWriter<Natural>.WriteMatrix(m.GetTable(), output);
             } catch (ArgumentException exception) {
                 Console.WriteLine(exception.Message);

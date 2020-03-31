@@ -10,10 +10,10 @@ namespace Matrix
 
         public Matrix(T[][] table) {
             if (table.Length == 0 || table[0].Length == 0)
-                throw new ArgumentException("Матрица должна содержать хотя бы один элемент.");
+                throw new ArgumentException("Matrix should contain at least one element.");
             for (int i = 1; i < table.Length; ++i)
                 if (table[i].Length != table[0].Length)
-                    throw new ArgumentException("Длины строк матрицы должны быть одинаковыми.");
+                    throw new ArgumentException("Lengths of each row should be equal.");
             this.table = table;
         }
 
@@ -21,9 +21,9 @@ namespace Matrix
             get => this.table[i][j];
         }
 
-        public static Matrix<T> multiply(Matrix<T> m1, Matrix<T> m2, ISemiring<T> sr) {
+        public static Matrix<T> Multiply(Matrix<T> m1, Matrix<T> m2, ISemiring<T> sr) {
             if (m1.Width != m2.Height)
-                throw new ArgumentException("Длина строк первой матрицы должна быть равна высоте столбцов второй.");
+                throw new ArgumentException("Width of first matrix should equal to height of second one.");
             int height = m1.Height,
                 width = m2.Width;
             T[][] result = new T[height][];

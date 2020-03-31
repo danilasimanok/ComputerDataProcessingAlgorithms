@@ -21,15 +21,15 @@ namespace TasksTest
             };
             Matrix<Natural> m1 = new Matrix<Natural>(t1),
                 m2 = new Matrix<Natural>(t2);
-            Natural[][] m = Matrix<Natural>.multiply(m1, m2, new NaturalSemiring()).GetTable();
-            Natural[][] pattern = new Natural[][] {
+            Matrix<Natural> m = Matrix<Natural>.Multiply(m1, m2, new NaturalSemiring());
+            Natural[][] expected = new Natural[][] {
                 new Natural[] {new Natural(30), new Natural(36), new Natural(42)},
                 new Natural[] {new Natural(66), new Natural(81), new Natural(96)}
             };
             int i, j;
-            for (i = 0; i < pattern.Length; ++i)
-                for (j = 0; j < pattern[0].Length; ++j)
-                    Assert.AreEqual(m[i][j].value, pattern[i][j].value);
+            for (i = 0; i < expected.Length; ++i)
+                for (j = 0; j < expected[0].Length; ++j)
+                    Assert.AreEqual(m[i, j].value, expected[i][j].value);
         }
 
         [Test]
@@ -47,8 +47,8 @@ namespace TasksTest
                 m2 = new Matrix<Natural>(t2);
             Assert.Throws<ArgumentException>(
                 delegate {
-                    Matrix<Natural>.multiply(m2, m1, new NaturalSemiring());
-                    });
+                    Matrix<Natural>.Multiply(m2, m1, new NaturalSemiring());
+                });
         }
 
         [Test]

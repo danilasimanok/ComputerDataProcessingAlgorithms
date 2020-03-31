@@ -20,7 +20,7 @@ namespace TransitiveClosure
             else if (word.Equals("f"))
                 this.value = false;
             else
-                throw new ArgumentException("Boolean м. б. восстановлено только из слов 't' или 'f'.");
+                throw new ArgumentException("Boolean can be restored only from 't' or 'f'.");
         }
 
         public String ToWord() => this.value ? "t" : "f";

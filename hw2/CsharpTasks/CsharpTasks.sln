@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Matrix", "Matrix\Matrix.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransitiveClosure", "TransitiveClosure\TransitiveClosure.csproj", "{75385C03-3930-49F2-B894-892A062D7F59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APSP", "APSP\APSP.csproj", "{725BEF9C-7F88-4A5E-983A-02CC52CD26BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APSP", "APSP\APSP.csproj", "{725BEF9C-7F88-4A5E-983A-02CC52CD26BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
