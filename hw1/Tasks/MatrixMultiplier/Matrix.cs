@@ -13,7 +13,7 @@ namespace MatrixMultiplier
 
         private void notZero(int rowsOrColumns) {
             if (rowsOrColumns == 0)
-                throw new ArgumentException("В матрице должна содержаться хотя бы одна клетка.");
+                throw new ArgumentException("Matrix should contain at least one cell.");
         }
 
         public Matrix(int[][] content) {
@@ -23,7 +23,7 @@ namespace MatrixMultiplier
             this.notZero(m);
             foreach (int[] line in content)
                 if (line.Length != m)
-                    throw new ArgumentException("Размеры строк должны быть одинаковыми.");
+                    throw new ArgumentException("Rows' lengths should be equal.");
             this.n = n;
             this.m = m;
             this.content = content;
@@ -34,7 +34,7 @@ namespace MatrixMultiplier
             int n = a.n,
                 m = b.m;
             if (a.m != b.n)
-                throw new ArgumentException("Количество столбцов первой и строк второй матрицы должно совпадать.");
+                throw new ArgumentException("Colum count of first matrix should equal to rows count of the second one.");
             int[][] content = new int[n][];
             int i, j, k;
             for (i = 0; i < n; ++i)

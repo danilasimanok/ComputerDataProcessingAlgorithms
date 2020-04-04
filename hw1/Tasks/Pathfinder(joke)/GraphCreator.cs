@@ -12,7 +12,7 @@ namespace Pathfinder_joke_
         
         public GraphCreator(Matrix matrix) {
             if (matrix.m != matrix.n)
-                throw new ArgumentException("Матрица смежности должна быть квадратной.");
+                throw new ArgumentException("Adjacency matrix should be square.");
             this.matrix = matrix.GetContent();
             this.graph = null;
             this.edgeCost = null;

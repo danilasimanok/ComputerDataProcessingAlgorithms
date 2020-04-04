@@ -29,7 +29,7 @@ namespace Useless
         private void checkIndex(int i)
         {
             if (i < 0 || i >= this.count)
-                throw new IndexOutOfRangeException("Индекс должен лежать в границах [0;" + this.count + "]. Дано " + i);
+                throw new IndexOutOfRangeException("Index should be in [0;" + this.count + "]. " + i + " was given.");
         }
 
         public T this[int i]

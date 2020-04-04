@@ -28,7 +28,7 @@ namespace TasksTests
         }
 
         [Test]
-        public void TestExtremeCase1() {
+        public void TestGraphWithOneVertex() {
             Matrix matrix = new Matrix(
                 new int[][] {
                     new int[] {-1}
@@ -39,7 +39,7 @@ namespace TasksTests
         }
 
         [Test]
-        public void TestExtremeCase2() {
+        public void TestGraphWithoutEdges() {
             Matrix matrix = new Matrix(
                 new int[][] {
                     new int[] {-1, -1, -1, -1, -1},
