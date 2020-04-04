@@ -26,7 +26,7 @@ module Matrix =
 
     let internal uncurry f (x, y) = f x y
 
-    let internal multiplyRC sr row column = List.fold sr.Add sr.IdentityElement (List.map (uncurry sr.Multiply) (List.zip row column))
+    let multiplyRC sr row column = List.fold sr.Add sr.IdentityElement (List.map (uncurry sr.Multiply) (List.zip row column))
 
     let internal multiplyWithColumns sr columns row = List.map (multiplyRC sr row) columns
 
@@ -43,6 +43,7 @@ module Matrix =
             | Columns(columns) -> columns
         Rows(List.map (multiplyWithColumns sr m2) m1)
 
+(*
     type SemigroupWithPartialOrder<'a> =
         {
         Multiply: ('a -> 'a -> 'a);
@@ -50,7 +51,7 @@ module Matrix =
         Le: ('a -> 'a -> bool)
         }
 
-    (*let floyd_warshall sg rows =
+    let floyd_warshall sg rows =
         
         let min_sum =
             let min x y = if sg.Le x y then x else y
