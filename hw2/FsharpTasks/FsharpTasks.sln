@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Matrix", "Matrix\Matrix.fsproj", "{4D62F91D-945C-4CDC-8CE6-E806E281045C}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Tests", "Tests\Tests.fsproj", "{DCEF7439-9660-41AE-9F01-B202909F91DB}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Tests", "Tests\Tests.fsproj", "{DCEF7439-9660-41AE-9F01-B202909F91DB}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MatrixMultiplier", "MatrixMultiplier\MatrixMultiplier.fsproj", "{147DF5FE-E89A-4714-8C4D-0305D5DBE220}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DCEF7439-9660-41AE-9F01-B202909F91DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCEF7439-9660-41AE-9F01-B202909F91DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCEF7439-9660-41AE-9F01-B202909F91DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{147DF5FE-E89A-4714-8C4D-0305D5DBE220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147DF5FE-E89A-4714-8C4D-0305D5DBE220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147DF5FE-E89A-4714-8C4D-0305D5DBE220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147DF5FE-E89A-4714-8C4D-0305D5DBE220}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

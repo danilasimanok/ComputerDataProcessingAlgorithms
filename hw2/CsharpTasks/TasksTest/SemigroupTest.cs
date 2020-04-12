@@ -25,6 +25,7 @@ namespace TasksTest
             Assert.AreEqual(this.sg.Multiply(this.a, this.lg).value, "infty");
         }
 
+        [Test]
         public void TestLE() {
             Assert.IsTrue(this.sg.LessOrEqual(this.a, this.b));
             Assert.IsTrue(this.sg.LessOrEqual(this.b, this.b));

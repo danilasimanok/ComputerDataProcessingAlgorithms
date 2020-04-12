@@ -11,11 +11,14 @@ namespace Matrix
             for (i = 0; i < matrix.Height; ++i) {
                 result[i] = new T[matrix.Height];
                 for (j = 0; j < matrix.Height; ++j)
+                {
+                    result[i][j] = matrix[i, j];
                     for (k = 0; k < matrix.Height; ++k)
                     {
                         T alternative = sg.Multiply(matrix[i, k], matrix[k, j]);
-                        result[i][j] = sg.LessOrEqual(alternative, matrix[i, j]) ? alternative : matrix[i, j];
+                        result[i][j] = sg.LessOrEqual(alternative, result[i][j]) ? alternative : result[i][j];
                     }
+                }
             }
             return new Matrix<T>(result);
         }
