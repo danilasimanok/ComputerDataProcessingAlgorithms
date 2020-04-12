@@ -13,7 +13,7 @@ module Matrix =
         Multiply: ('a -> 'a -> 'a)
         }
     
-    let transpose lists =
+    let internal transposeLists lists =
         let rec f lists acc res_acc new_lists =
             match lists with
             | [] -> f (List.rev new_lists) [] ((List.rev acc)::res_acc) []
@@ -24,65 +24,79 @@ module Matrix =
                     f tl (hd'::acc) res_acc (tl'::new_lists)
         f lists [] [] []
 
-    let internal uncurry f (x, y) = f x y
-
-    let multiplyRC sr row column = List.fold sr.Add sr.IdentityElement (List.map (uncurry sr.Multiply) (List.zip row column))
-
-    let internal multiplyWithColumns sr columns row = List.map (multiplyRC sr row) columns
+    let transpose matrix =
+        match matrix with
+        | Rows lists -> Rows <| transposeLists lists
+        | Columns lists -> Columns <| transposeLists lists
 
     let toRowsList matrix =
         match matrix with
-        | Rows(lists) -> lists
-        | Columns(lists) -> transpose lists
+        | Rows lists -> lists
+        | Columns lists -> transposeLists lists
 
-    let mulpiply sr a b =
+    let toColumnsList matrix =
+        match matrix with
+        | Rows lists -> transposeLists lists
+        | Columns lists -> lists
+
+    let internal len lists = List.length <| List.head lists
+
+    let multiply sr a b =
         let m1 = toRowsList a
-        let m2 =
-            match b with
-            | Rows(rows) -> transpose rows
-            | Columns(columns) -> columns
-        Rows(List.map (multiplyWithColumns sr m2) m1)
+        let m2 = toColumnsList b
+        let multiply (x, y) = sr.Multiply x y
+        let sizesAreCorrect = len m1 = len m2
 
-(*
+        let multiplyRC row column =
+            List.fold sr.Add sr.IdentityElement <| (List.map multiply <| List.zip row column)
+
+        let multiplyWithColumns row = List.map (multiplyRC row) m2
+
+        if sizesAreCorrect
+        then Some <| (Rows <| List.map multiplyWithColumns m1)
+        else None
+
+    let fromRowsList list =
+        
+        let rec checkLengths length list =
+            match list with
+            | [] -> true
+            | hd :: tl ->
+                if List.length hd = length
+                then checkLengths length tl
+                else false
+
+        match list with
+        | [] -> None
+        | hd :: _ ->
+            let length = List.length hd
+            if length = 0 || not (checkLengths length list)
+            then None
+            else Some <| Rows list
+
     type SemigroupWithPartialOrder<'a> =
         {
         Multiply: ('a -> 'a -> 'a);
-        Infty: 'a;
         Le: ('a -> 'a -> bool)
         }
 
-    let floyd_warshall sg rows =
+    let floydWarshall sg matrix =
         
-        let min_sum =
-            let min x y = if sg.Le x y then x else y
-            List.fold (fun c' (x, y) -> min c' (sg.Multiply x y))
-        
-        let columns = transpose rows
-        
-        let rec f rows result =
-            match rows with
-            | [] -> List.rev result
-            | row :: tl ->
-                let zip_with_row = List.zip row
-                let columns_zipped = zip_with_row columns
-                let mins = List.map (uncurry min_sum) (zip_with_row (zip_with_row columns))
-                f tl (mins :: result)
-        
-        f rows []
+        let rows = toRowsList matrix
+        let columns = toColumnsList matrix
+        let min state (x, y) =
+            let sum = sg.Multiply x y
+            if sg.Le sum state
+            then sum
+            else state
 
-module FsharpMatrixConvertor =
-    
-    exception MatrixSizeException of string
+        let inner columns row =
+            let zip_with_row list = List.zip row list
+            let state_pairs_list = zip_with_row <| List.map zip_with_row columns
+            let process_pair (state, pairs) = List.fold min state pairs
 
-    let toMatrix seqs =
-        let rowsList = List.ofSeq >> List.map List.ofSeq <| seqs
-        match List.length rowsList with
-        | 0 -> raise <| MatrixSizeException "Размер матрицы должен быть ненулевым."
-        | _ ->
-            let length = List.length << List.head <| rowsList
-            if length = 0
-            then raise <| MatrixSizeException "Размер матрицы должен быть ненулевым."
-            elif List.forall (fun x -> length = List.length x) rowsList
-            then Matrix.Rows(rowsList)
-            else raise <| MatrixSizeException "Размеры строк должны быть одинаковыми"
-*)
+            List.map process_pair state_pairs_list
+
+        if len rows = len columns
+        then Some <| (Rows <| List.map (inner columns) rows)
+        else None
