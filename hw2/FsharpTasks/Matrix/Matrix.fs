@@ -1,6 +1,4 @@
-﻿namespace Matrix
-
-module Matrix =
+﻿module Matrix
     
     type Matrix<'a> = 
         | Rows of 'a list list
@@ -26,8 +24,8 @@ module Matrix =
 
     let transpose matrix =
         match matrix with
-        | Rows lists -> Rows <| transposeLists lists
-        | Columns lists -> Columns <| transposeLists lists
+        | Rows lists -> (Rows << transposeLists) lists
+        | Columns lists -> (Columns << transposeLists) lists
 
     let toRowsList matrix =
         match matrix with
@@ -39,7 +37,7 @@ module Matrix =
         | Rows lists -> transposeLists lists
         | Columns lists -> lists
 
-    let internal len lists = List.length <| List.head lists
+    let internal len lists = (List.length << List.head) lists
 
     let multiply sr a b =
         let m1 = toRowsList a
@@ -47,24 +45,18 @@ module Matrix =
         let multiply (x, y) = sr.Multiply x y
         let sizesAreCorrect = len m1 = len m2
 
-        let multiplyRC row column =
-            List.fold sr.Add sr.IdentityElement <| (List.map multiply <| List.zip row column)
+        let multiplyRC row =
+            List.fold sr.Add sr.IdentityElement << List.map multiply << List.zip row
 
         let multiplyWithColumns row = List.map (multiplyRC row) m2
 
         if sizesAreCorrect
-        then Some <| (Rows <| List.map multiplyWithColumns m1)
+        then (Some << Rows << List.map multiplyWithColumns) m1
         else None
 
     let fromRowsList list =
         
-        let rec checkLengths length list =
-            match list with
-            | [] -> true
-            | hd :: tl ->
-                if List.length hd = length
-                then checkLengths length tl
-                else false
+        let checkLengths length = List.forall ((=) length << List.length)
 
         match list with
         | [] -> None
@@ -72,7 +64,7 @@ module Matrix =
             let length = List.length hd
             if length = 0 || not (checkLengths length list)
             then None
-            else Some <| Rows list
+            else (Some << Rows) list
 
     type SemigroupWithPartialOrder<'a> =
         {
@@ -92,11 +84,11 @@ module Matrix =
 
         let inner columns row =
             let zip_with_row list = List.zip row list
-            let state_pairs_list = zip_with_row <| List.map zip_with_row columns
+            let state_pairs_list = (zip_with_row << List.map zip_with_row) columns
             let process_pair (state, pairs) = List.fold min state pairs
 
             List.map process_pair state_pairs_list
 
         if len rows = len columns
-        then Some <| (Rows <| List.map (inner columns) rows)
+        then (Some << Rows << List.map (inner columns)) rows
         else None

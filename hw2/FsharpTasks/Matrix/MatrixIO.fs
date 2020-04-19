@@ -1,25 +1,16 @@
-﻿namespace Matrix
-
-open System.IO
-
-module MatrixIO =
+﻿module MatrixIO
+    
+    open System.IO
     
     let readRowsList toMatrixElement path =
-        let lineIsNotEmpty line = line = "" |> not
+        let lineIsNotEmpty = not << (=) ""
         let lineToRow (line : string) =
-            let words = List.ofArray <| line.Split " "
+            let words = line.Split " " |> List.ofArray
             List.map toMatrixElement words
-        try
-            let lines = File.ReadLines path
-            Some <| (List.ofSeq <| (Seq.map lineToRow <| (Seq.filter lineIsNotEmpty lines)))
-        with
-            _ -> None
+        let lines = File.ReadLines path
+        (List.ofSeq << Seq.map lineToRow << Seq.filter lineIsNotEmpty) lines
 
     let writeRowsList toWord rows path =
-        let rowToLine row =
-            List.map toWord row |> String.concat " "
-        try
-            File.WriteAllLines (path, (Seq.ofList <| List.map rowToLine rows))
-            true
-        with
-            _ -> false
+        let rowToLine =
+            String.concat " " << List.map toWord
+        File.WriteAllLines (path, ((Seq.ofList << List.map rowToLine) rows))

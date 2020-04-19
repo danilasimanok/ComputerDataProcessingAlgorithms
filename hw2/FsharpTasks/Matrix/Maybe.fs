@@ -1,6 +1,4 @@
-﻿namespace Matrix
-
-module Maybe =
+﻿module Maybe
 
     type MaybeBuilder () =
         member this.Bind (x, f) =
