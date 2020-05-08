@@ -1,4 +1,6 @@
-﻿module Matrix
+﻿namespace FsMatrix
+
+module Matrix = 
     
     type Matrix<'a> = 
         | Rows of 'a list list

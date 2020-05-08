@@ -1,4 +1,6 @@
-﻿module MatrixIO
+﻿namespace FsMatrix
+
+module MatrixIO =
     
     open System.IO
     

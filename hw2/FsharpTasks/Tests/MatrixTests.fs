@@ -3,7 +3,7 @@ module Tests
 open NUnit.Framework
 open FsUnit
 
-open Matrix
+open FsMatrix.Matrix
 
 [<TestFixture>]
 type MatrixTests() =

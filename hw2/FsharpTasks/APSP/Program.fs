@@ -1,5 +1,5 @@
-﻿open Matrix
-open MatrixIO
+﻿open FsMatrix.Matrix
+open FsMatrix.MatrixIO
 open Maybe
 open Argu
 

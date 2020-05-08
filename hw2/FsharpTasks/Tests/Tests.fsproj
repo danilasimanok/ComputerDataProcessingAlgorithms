@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Matrix\Matrix.fsproj" />
+    <ProjectReference Include="..\Matrix\FsMatrix.fsproj" />
   </ItemGroup>
 
   <ItemGroup>

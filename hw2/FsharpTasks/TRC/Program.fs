@@ -1,10 +1,10 @@
 ﻿open Argu
-open Matrix
-open MatrixIO
+open FsMatrix.Matrix
+open FsMatrix.MatrixIO
 open Maybe
 open System.IO
-open System.Diagnostics
-open DotGenerator
+open Translator
+open TransitiveClosure
 
 type Argument =
     | [<Mandatory>] Matrix of path : string
@@ -16,7 +16,7 @@ with
             | Matrix _ -> "specify path to the origin matrix."
             | Result _ -> "specify path in which the result of transitive closure should be written."
 
-let parser = ArgumentParser.Create<Argument>(programName = "TransitiveClosure.exe");
+let parser = ArgumentParser.Create<Argument>(programName = "TRC.exe");
 
 let sg = {Multiply = (&&); Le = fun x y -> x || not y}
 
@@ -29,6 +29,8 @@ let toBool word =
 let toString f = if f then "t" else "f"
 
 let maybe = new MaybeBuilder()
+
+let toSeq = Seq.ofList << (List.map Seq.ofList) << toRowsList
 
 [<EntryPoint>]
 let main argv =
@@ -43,18 +45,11 @@ let main argv =
         match result with
         | None -> eprintfn "Something wrong with matrix."
         | Some (origin, result) ->
-            let dotString = generateDot origin result
             let temp = dst + ".tmp"
-            File.WriteAllText(temp, dotString)
-            let startInfo =
-                ProcessStartInfo (
-                    FileName = "dot",
-                    Arguments = "-Tpdf -o" + dst + " " + temp
-                )
-            let dot = new Process(StartInfo = startInfo)
-            if dot.Start()
-            then dot.WaitForExit()
-            else failwith "Failed to start process dot."
+            let mt = new MatrixTranslator<bool, Boolean>(fun f -> new Boolean(f));
+            let originArray, resultArray = (mt.Translate << toSeq) origin, (mt.Translate << toSeq) result
+            DotMediator.CreateDot(originArray, resultArray, temp)
+            DotMediator.ProcessDot(temp, dst)
             File.Delete(temp)
     with
         e -> eprintfn "%s" e.Message

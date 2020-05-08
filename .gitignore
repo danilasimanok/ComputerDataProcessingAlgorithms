@@ -261,8 +261,4 @@ __pycache__/
 *.pyc
 
 # Локальные настройки
-<<<<<<< HEAD
 launchSettings.json 
-=======
-launchSettings.json
->>>>>>> master
