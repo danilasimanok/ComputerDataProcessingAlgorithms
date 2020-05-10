@@ -1,11 +1,25 @@
 ﻿open Argu
-open Args
 open FsMatrix.Matrix
 open FsMatrix.MatrixIO
 open Maybe
 open TransitiveClosure
 open System.IO
 open Translator
+
+type Task =
+    | MUL
+    | APSP
+    | TRC
+
+type Argument = 
+    | [<Mandatory>] Task of task : Task
+    | [<MainCommand; ExactlyOnce; Last>] Matrices of paths : string list
+    with
+    interface IArgParserTemplate with
+        member s.Usage =
+            match s with
+            | Task _ -> "specify what is to be done. (TRC | APSP | MUL)"
+            | Matrices _ -> "specify paths to matrices."
 
 let parser = ArgumentParser.Create<Argument>(programName = "MatrixProcessor")
 
@@ -17,7 +31,6 @@ let checkMatricesCount n list =
     then failwith "Not enough arguments."
     elif len > n
     then failwith "Too many arguments."
-    else ()
 
 let writeMatrix f = toRowsList >> writeRowsList f
 
@@ -27,7 +40,7 @@ let processResult result continuation dst =
     | Some x -> continuation x dst
 
 let checkTRCMatricesPaths = checkMatricesCount 2
-let readForTRC f = fromRowsList << readRowsList f
+let readMatrix f = fromRowsList << readRowsList f
     
 
 [<EntryPoint>]
@@ -43,7 +56,7 @@ let main argv =
             checkMatricesCount 3 matricesPaths
                 
             let sr = {IdentityElement = 0; Add = (+); Multiply = (*)}
-            let readMatrix = fromRowsList << readRowsList int
+            let readMatrix = readMatrix int
                 
             let [m1src; m2src; dst] = matricesPaths
             let result = maybe {
@@ -67,7 +80,7 @@ let main argv =
 
             let [msrc; dst] = matricesPaths
             let result = maybe {
-                let! matrix = readForTRC id msrc
+                let! matrix = readMatrix id msrc
                 let! result = floydWarshall sg matrix
                 return result
             }
@@ -86,7 +99,7 @@ let main argv =
 
             let [msrc; dst] = matricesPaths
             let result = maybe {
-                let! matrix = readForTRC toBool msrc
+                let! matrix = readMatrix toBool msrc
                 let! result = floydWarshall sg matrix
                 return matrix, result
             }
