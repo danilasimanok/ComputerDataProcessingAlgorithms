@@ -8,8 +8,9 @@ before_install:
     - sudo apt-get install graphviz
 
 install:
-    - nuget restore hw1/Tasks/Tasks.sln
+    - nuget restore hw2/CsharpTasks/CsharpTasks.sln
+    - nuget restore hw2/FsharpTasks/FsharpTasks.sln
 
 script:
-    - dotnet build hw1/Tasks/Tasks.sln
-    - dotnet test hw1/Tasks/Tasks.sln
+    - dotnet test hw2/CsharpTasks/CsharpTasks.sln
+    - dotnet test hw2/FsharpTasks/FsharpTasks.sln

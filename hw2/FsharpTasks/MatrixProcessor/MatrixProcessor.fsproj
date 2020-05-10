@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Argu" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Matrix\FsMatrix.fsproj" />
+    <ProjectReference Include="..\Translator\Translator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Matrix">
+      <HintPath>..\..\CsharpTasks\Matrix\bin\Debug\netcoreapp3.1\Matrix.dll</HintPath>
+    </Reference>
+    <Reference Include="TransitiveClosure">
+      <HintPath>..\..\CsharpTasks\TransitiveClosure\obj\Debug\netcoreapp3.1\TransitiveClosure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
