@@ -14,14 +14,14 @@ module Matrix =
         }
     
     let internal transposeLists lists =
-        let rec f lists acc res_acc new_lists =
+        let rec f lists acc resAcc newLists =
             match lists with
-            | [] -> f (List.rev new_lists) [] ((List.rev acc)::res_acc) []
+            | [] -> f (List.rev newLists) [] ((List.rev acc)::resAcc) []
             | hd :: tl ->
                 match hd with
-                | [] -> List.rev res_acc
+                | [] -> List.rev resAcc
                 | hd' :: tl' ->
-                    f tl (hd'::acc) res_acc (tl'::new_lists)
+                    f tl (hd'::acc) resAcc (tl'::newLists)
         f lists [] [] []
 
     let transpose matrix =
@@ -85,11 +85,11 @@ module Matrix =
             else state
 
         let inner columns row =
-            let zip_with_row list = List.zip row list
-            let state_pairs_list = (zip_with_row << List.map zip_with_row) columns
-            let process_pair (state, pairs) = List.fold min state pairs
+            let zipWithRow list = List.zip row list
+            let statePairsList = (zipWithRow << List.map zipWithRow) columns
+            let processPair (state, pairs) = List.fold min state pairs
 
-            List.map process_pair state_pairs_list
+            List.map processPair statePairsList
 
         if len rows = len columns
         then (Some << Rows << List.map (inner columns)) rows
