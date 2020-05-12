@@ -11,11 +11,12 @@ type MatrixGeneratorTests() =
     
     let path = "matrices"
     let range = {1 .. 4}
+    let sep = string Path.DirectorySeparatorChar
 
     [<Test>]
     member _.testCreation () =
         (ignore << main) [|"--t"; "BOOLEAN"; "--s"; "3"; "--p"; path; "--c"; "4"|]
-        let path1 = path + "\\boolean\\3\\matrix"
+        let path1 = path + sep + "boolean" + sep + "3" + sep + "matrix"
         Seq.iter (fun x -> File.Exists (path1 + string x) |> should equal true) range
         Directory.Delete (path, true)
 

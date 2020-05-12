@@ -29,6 +29,8 @@ let toString et =
     | BOOLEAN -> "boolean"
     | INTEGER -> "integer"
 
+let sep = string Path.DirectorySeparatorChar
+
 [<EntryPoint>]
 let main argv =
     try
@@ -36,9 +38,9 @@ let main argv =
         let elementType, size, path, count =
             results.GetResult T, results.GetResult S, (results.GetResult P), results.GetResult C
         let range = {1 .. count}
-        let path = path + "\\" + (toString elementType) + "\\" + (string size)
+        let path = path + sep + (toString elementType) + sep + (string size)
         (ignore << Directory.CreateDirectory) path
-        let path = path + "\\matrix"
+        let path = path + sep + "matrix"
         match elementType with
         | REAL ->
             Seq.iter (fun x -> writeRowsList string (randomLists randomReal size) (path + string x)) range
