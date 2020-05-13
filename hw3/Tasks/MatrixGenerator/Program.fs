@@ -41,14 +41,12 @@ let main argv =
         let path = path + sep + (toString elementType) + sep + (string size)
         (ignore << Directory.CreateDirectory) path
         let path = path + sep + "matrix"
-        match elementType with
-        | REAL ->
-            Seq.iter (fun x -> writeRowsList string (randomLists randomReal size) (path + string x)) range
-        | EXTENDED_REAL ->
-            Seq.iter (fun x -> writeRowsList string (randomLists randomExtendedReal size) (path + string x)) range
-        | BOOLEAN ->
-            Seq.iter (fun x -> writeRowsList string (randomLists randomBoolean size) (path + string x)) range
-        | INTEGER ->
-            Seq.iter (fun x -> writeRowsList string (randomLists randomInteger size) (path + string x)) range
+        let action x =
+            match elementType with
+            | REAL -> writeRowsList string (randomLists randomReal size) (path + string x)
+            | EXTENDED_REAL -> writeRowsList string (randomLists randomExtendedReal size) (path + string x)
+            | BOOLEAN -> writeRowsList string (randomLists randomBoolean size) (path + string x)
+            | INTEGER -> writeRowsList string (randomLists randomInteger size) (path + string x)
+        Seq.iter action range
     with e -> eprintfn "%s" e.Message
     0
