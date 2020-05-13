@@ -29,22 +29,20 @@ let toString et =
     | BOOLEAN -> "boolean"
     | INTEGER -> "integer"
 
-let sep = string Path.DirectorySeparatorChar
-
 [<EntryPoint>]
 let main argv =
     try
         let results = parser.ParseCommandLine argv
         let elementType, size, path, count =
-            results.GetResult T, results.GetResult S, (results.GetResult P), results.GetResult C
+            results.GetResult T, results.GetResult S, results.GetResult P, results.GetResult C
         let range = {1 .. count}
-        let path = path + sep + (toString elementType) + sep + (string size)
+        let path = Path.Combine [|path; toString elementType; string size|]
         (ignore << Directory.CreateDirectory) path
-        let path = path + sep + "matrix"
+        let path = Path.Combine (path, "matrix")
         let action x =
             match elementType with
             | REAL -> writeRowsList string (randomLists randomReal size) (path + string x)
-            | EXTENDED_REAL -> writeRowsList string (randomLists randomExtendedReal size) (path + string x)
+            | EXTENDED_REAL -> writeRowsList toWord (randomLists randomExtendedReal size) (path + string x)
             | BOOLEAN -> writeRowsList string (randomLists randomBoolean size) (path + string x)
             | INTEGER -> writeRowsList string (randomLists randomInteger size) (path + string x)
         Seq.iter action range
