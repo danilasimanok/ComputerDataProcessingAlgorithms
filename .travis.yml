@@ -10,8 +10,10 @@ install:
     - nuget restore hw2/CsharpTasks/CsharpTasks.sln
     - nuget restore hw2/FsharpTasks/FsharpTasks.sln
     - nuget restore hw3/Tasks/Tasks.sln
+    - nuget restore hw4/Tasks/Tasks.sln
 
 script:
     - dotnet build hw2/CsharpTasks/CsharpTasks.sln
     - dotnet build hw2/FsharpTasks/FsharpTasks.sln
-    - dotnet test hw3/Tasks/Tasks.sln
+    - dotnet build hw3/Tasks/Tasks.sln
+    - dotnet test hw4/Tasks/Tasks.sln

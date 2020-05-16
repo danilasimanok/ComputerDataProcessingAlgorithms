@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "MatrixParallel", "MatrixParallel\MatrixParallel.fsproj", "{B1374E3B-A17A-46B2-9A87-A60F1A57AFDD}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Tests", "Tests\Tests.fsproj", "{9B8EC400-58DD-4904-8631-6DB9FDAA0F97}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GeneratedTypes", "GeneratedTypes\GeneratedTypes.fsproj", "{F94F1E03-CF8C-407A-8DFF-1461B2476289}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MatrixMultiplier", "MatrixMultiplier\MatrixMultiplier.fsproj", "{8917A387-86AF-4748-BBA6-B48210C68767}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1374E3B-A17A-46B2-9A87-A60F1A57AFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1374E3B-A17A-46B2-9A87-A60F1A57AFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1374E3B-A17A-46B2-9A87-A60F1A57AFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1374E3B-A17A-46B2-9A87-A60F1A57AFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B8EC400-58DD-4904-8631-6DB9FDAA0F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B8EC400-58DD-4904-8631-6DB9FDAA0F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B8EC400-58DD-4904-8631-6DB9FDAA0F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B8EC400-58DD-4904-8631-6DB9FDAA0F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94F1E03-CF8C-407A-8DFF-1461B2476289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94F1E03-CF8C-407A-8DFF-1461B2476289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94F1E03-CF8C-407A-8DFF-1461B2476289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94F1E03-CF8C-407A-8DFF-1461B2476289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8917A387-86AF-4748-BBA6-B48210C68767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8917A387-86AF-4748-BBA6-B48210C68767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8917A387-86AF-4748-BBA6-B48210C68767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8917A387-86AF-4748-BBA6-B48210C68767}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39CB6B3E-8A3F-4C6F-850E-AF137BD8A261}
+	EndGlobalSection
+EndGlobal
