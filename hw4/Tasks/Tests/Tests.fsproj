@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="ActorsTests.fs" />
+    <Compile Include="SemigroupsTests.fs" />
     <Compile Include="RealTests.fs" />
     <Compile Include="IntegerTests.fs" />
     <Compile Include="BooleanTests.fs" />
@@ -24,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Actors\Actors.fsproj" />
     <ProjectReference Include="..\GeneratedTypes\GeneratedTypes.fsproj" />
     <ProjectReference Include="..\MatrixParallel\MatrixParallel.fsproj" />
   </ItemGroup>

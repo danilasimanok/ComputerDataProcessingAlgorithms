@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Semigroups.fs" />
+    <Compile Include="TransitiveClosure.fs" />
+    <Compile Include="Multiplier.fs" />
+    <Compile Include="Creator.fs" />
+    <Compile Include="Writer.fs" />
+    <Compile Include="Reader.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GeneratedTypes\GeneratedTypes.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FsMatrix">
+      <HintPath>..\..\..\hw2\FsharpTasks\Matrix\bin\Debug\netcoreapp3.1\FsMatrix.dll</HintPath>
+    </Reference>
+    <Reference Include="MatrixGenerator">
+      <HintPath>..\..\..\hw3\Tasks\MatrixGenerator\bin\Debug\netcoreapp3.1\MatrixGenerator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
