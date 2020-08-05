@@ -23,4 +23,4 @@ let randomExtendedReal () =
     else Real r
 
 let randomLists f n =
-    List.init n (fun i -> List.init n (fun i -> f ()))
+    List.init n (fun _ -> List.init n (fun _ -> f ()))

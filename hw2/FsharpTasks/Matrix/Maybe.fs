@@ -1,8 +1,8 @@
 ﻿module Maybe
 
     type MaybeBuilder () =
-        member this.Bind (x, f) =
+        member _.Bind (x, f) =
             match x with
             | None -> None
             | Some x -> f x
-        member this.Return (x) = Some x
+        member _.Return (x) = Some x

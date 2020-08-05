@@ -14,7 +14,7 @@
     <Compile Include="IntegerTests.fs" />
     <Compile Include="BooleanTests.fs" />
     <Compile Include="ExtendedRealTests.fs" />
-    <Compile Include="MatrixParallelTest.fs" />
+    <Compile Include="MatrixParallelTests.fs" />
   </ItemGroup>
 
   <ItemGroup>

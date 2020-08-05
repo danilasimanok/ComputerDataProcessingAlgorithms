@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Matrix
+﻿namespace Matrix
 {
     static class TableCopier<T> {
         public static T[][] Copy(T[][] origin) {

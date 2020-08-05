@@ -16,4 +16,7 @@ script:
     - dotnet build hw2/CsharpTasks/CsharpTasks.sln
     - dotnet build hw2/FsharpTasks/FsharpTasks.sln
     - dotnet build hw3/Tasks/Tasks.sln
+    - dotnet test hw2/CsharpTasks/CsharpTasks.sln
+    - dotnet test hw2/FsharpTasks/FsharpTasks.sln
+    - dotnet test hw3/Tasks/Tasks.sln
     - dotnet test hw4/Tasks/Tasks.sln
