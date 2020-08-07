@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Actors\Actors.fsproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="FsMatrix">
       <HintPath>..\..\..\hw2\FsharpTasks\Matrix\bin\Debug\netcoreapp3.1\FsMatrix.dll</HintPath>
     </Reference>
