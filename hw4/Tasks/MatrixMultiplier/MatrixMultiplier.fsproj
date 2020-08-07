@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GeneratedTypes\GeneratedTypes.fsproj" />
     <ProjectReference Include="..\MatrixParallel\MatrixParallel.fsproj" />
   </ItemGroup>
 
@@ -25,6 +24,9 @@
     </Reference>
     <Reference Include="MatrixGenerator">
       <HintPath>..\..\..\hw3\Tasks\MatrixGenerator\bin\Debug\netcoreapp3.1\MatrixGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="Types">
+      <HintPath>..\..\..\hw2\FsharpTasks\Types\bin\Debug\netcoreapp3.1\Types.dll</HintPath>
     </Reference>
   </ItemGroup>
 

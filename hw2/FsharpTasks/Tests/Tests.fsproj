@@ -18,11 +18,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="RealTests.fs" />
+    <Compile Include="BooleanTests.fs" />
+    <Compile Include="ExtendedRealTests.fs" />
+    <Compile Include="IntegerTests.fs" />
     <Compile Include="MatrixTests.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Matrix\FsMatrix.fsproj" />
+    <ProjectReference Include="..\Types\Types.fsproj" />
   </ItemGroup>
 
   <ItemGroup>

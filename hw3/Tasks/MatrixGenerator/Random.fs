@@ -1,7 +1,7 @@
 ﻿module Random
 
 open System
-open Types
+open ExtendedReal
 
 let internal random = new Random ()
 
