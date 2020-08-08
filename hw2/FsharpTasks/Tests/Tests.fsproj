@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Matrix\FsMatrix.fsproj" />
+    <ProjectReference Include="..\FsMatrix\FsMatrix.fsproj" />
     <ProjectReference Include="..\Types\Types.fsproj" />
   </ItemGroup>
 

@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <Reference Include="FsMatrix">
-      <HintPath>..\..\..\hw2\FsharpTasks\Matrix\bin\Debug\netcoreapp3.1\FsMatrix.dll</HintPath>
+      <HintPath>..\..\..\hw2\FsharpTasks\FsMatrix\bin\Debug\netcoreapp3.1\FsMatrix.dll</HintPath>
     </Reference>
     <Reference Include="MatrixGenerator">
       <HintPath>..\..\..\hw3\Tasks\MatrixGenerator\bin\Debug\netcoreapp3.1\MatrixGenerator.dll</HintPath>

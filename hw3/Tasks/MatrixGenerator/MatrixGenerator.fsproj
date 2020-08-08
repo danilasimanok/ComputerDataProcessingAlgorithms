@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <Reference Include="FsMatrix">
-      <HintPath>..\..\..\hw2\FsharpTasks\Matrix\bin\Debug\netcoreapp3.1\FsMatrix.dll</HintPath>
+      <HintPath>..\..\..\hw2\FsharpTasks\FsMatrix\bin\Debug\netcoreapp3.1\FsMatrix.dll</HintPath>
     </Reference>
     <Reference Include="Types">
       <HintPath>..\..\..\hw2\FsharpTasks\Types\bin\Debug\netcoreapp3.1\Types.dll</HintPath>

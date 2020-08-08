@@ -14,8 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Matrix\FsMatrix.fsproj" />
+    <ProjectReference Include="..\FsMatrix\FsMatrix.fsproj" />
     <ProjectReference Include="..\Translator\Translator.csproj" />
+    <ProjectReference Include="..\Types\Types.fsproj" />
   </ItemGroup>
 
   <ItemGroup>

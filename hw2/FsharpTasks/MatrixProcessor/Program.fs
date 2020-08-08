@@ -5,6 +5,8 @@ open Maybe
 open TransitiveClosure
 open System.IO
 open Translator
+open Integer
+open Boolean
 
 type Task =
     | MUL
@@ -55,17 +57,16 @@ let main argv =
         | MUL ->
             checkMatricesCount 3 matricesPaths
                 
-            let sr = {IdentityElement = 0; Add = (+); Multiply = (*)}
-            let readMatrix = readMatrix int
+            let readMatrix = readMatrix fromWordI
                 
             let [m1src; m2src; dst] = matricesPaths
             let result = maybe {
                 let! matrix1 = readMatrix m1src
                 let! matrix2 = readMatrix m2src
-                let! result = multiply sr matrix1 matrix2
+                let! result = multiply integerSemiring matrix1 matrix2
                 return result
             }
-            processResult result (writeMatrix string) dst
+            processResult result (writeMatrix toWordI) dst
 
         | APSP ->
             checkTRCMatricesPaths matricesPaths
@@ -90,16 +91,11 @@ let main argv =
             checkTRCMatricesPaths matricesPaths
 
             let sg = {Multiply = (&&); Le = fun x y -> x || not y}
-            let toBool word =
-                match word with
-                | "t" -> true
-                | "f" -> false
-                | _ -> failwith "Boolean can be restored only from 't' or 'f'."
             let toSeq = Seq.ofList << (List.map Seq.ofList) << toRowsList
 
             let [msrc; dst] = matricesPaths
             let result = maybe {
-                let! matrix = readMatrix toBool msrc
+                let! matrix = readMatrix fromWordB msrc
                 let! result = floydWarshall sg matrix
                 return matrix, result
             }
