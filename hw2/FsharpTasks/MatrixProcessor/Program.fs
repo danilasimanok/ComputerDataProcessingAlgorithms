@@ -90,13 +90,12 @@ let main argv =
         | TRC ->
             checkTRCMatricesPaths matricesPaths
 
-            let sg = {Multiply = (&&); Le = fun x y -> x || not y}
             let toSeq = Seq.ofList << (List.map Seq.ofList) << toRowsList
 
             let [msrc; dst] = matricesPaths
             let result = maybe {
                 let! matrix = readMatrix fromWordB msrc
-                let! result = floydWarshall sg matrix
+                let! result = floydWarshall booleanSemigroupWithPartialOrder matrix
                 return matrix, result
             }
 

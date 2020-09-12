@@ -36,6 +36,7 @@ type RealTests () =
     [<TestCase(-3.14, 7.77)>]
     [<TestCase(-6.5, 6.5)>]
     member _.testAddition (x, y) =
+        // он же realSemigroupWithPartialOrder.Multiply
         realSemiring.Add x y =! x + y |> should equal true
 
     [<TestCase(1.01010101, 0.0)>]
@@ -43,3 +44,9 @@ type RealTests () =
     [<TestCase(-6.5, 6.5)>]
     member _.testMultiplication (x, y) =
         realSemiring.Multiply x y =! x * y |> should equal true
+
+    [<TestCase(1.01010101, 0.0)>]
+    [<TestCase(-3.14, 7.77)>]
+    [<TestCase(-6.5, 6.5)>]
+    member _.testLessOrEqual (x, y) =
+        realSemigroupWithPartialOrder.Le x y |> should equal <| (x <= y)

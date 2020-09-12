@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="ActorsTests.fs" />
     <Compile Include="MatrixParallelTests.fs" />
   </ItemGroup>
 
@@ -20,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ActorBasedMatrixProcessor\ActorBasedMatrixProcessor.fsproj" />
     <ProjectReference Include="..\MatrixParallel\MatrixParallel.fsproj" />
   </ItemGroup>
 

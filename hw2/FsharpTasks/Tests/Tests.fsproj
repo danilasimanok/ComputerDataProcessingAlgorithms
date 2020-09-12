@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -18,10 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="RealTests.fs" />
     <Compile Include="BooleanTests.fs" />
-    <Compile Include="ExtendedRealTests.fs" />
     <Compile Include="IntegerTests.fs" />
+    <Compile Include="RealTests.fs" />
+    <Compile Include="ExtendedRealTests.fs" />
     <Compile Include="MatrixTests.fs" />
   </ItemGroup>
 

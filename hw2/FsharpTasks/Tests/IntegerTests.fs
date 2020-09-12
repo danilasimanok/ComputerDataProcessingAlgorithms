@@ -36,6 +36,7 @@ type IntegerTests () =
     [<TestCase(-3, 7)>]
     [<TestCase(-6, 6)>]
     member _.testAddition (x, y) =
+        // он же integerSemigroupWithPartialOrder.Multiply
         integerSemiring.Add x y |> should equal <| x + y
 
     [<TestCase(1, 0)>]
@@ -43,3 +44,9 @@ type IntegerTests () =
     [<TestCase(-6, 6)>]
     member _.testMultiplication (x, y) =
         integerSemiring.Multiply x y |> should equal <| x * y
+
+    [<TestCase(1, 0)>]
+    [<TestCase(-3, 7)>]
+    [<TestCase(-6, 6)>]
+    member _.testLessOrEqual (x, y) =
+        integerSemigroupWithPartialOrder.Le x y |> should equal <| (x <= y)

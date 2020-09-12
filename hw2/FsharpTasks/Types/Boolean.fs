@@ -3,6 +3,8 @@
 open FsMatrix.Matrix
 open System
 
+let booleanSemigroupWithPartialOrder = {Multiply = (&&); Le = fun x y -> x || not y}
+
 let booleanSemiring = {IdentityElement = false; Add = (||); Multiply = (&&)}
 
 let toWordB f = if f then "t" else "f"

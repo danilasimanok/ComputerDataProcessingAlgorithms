@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Boolean.fs" />
     <Compile Include="Integer.fs" />
     <Compile Include="Real.fs" />
     <Compile Include="ExtendedReal.fs" />
-    <Compile Include="Boolean.fs" />
   </ItemGroup>
 
   <ItemGroup>

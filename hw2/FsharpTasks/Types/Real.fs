@@ -2,6 +2,8 @@
 
 open FsMatrix.Matrix
 
+let realSemigroupWithPartialOrder : SemigroupWithPartialOrder<float> = {Multiply = (+); Le = (<=)}
+
 let realSemiring = {IdentityElement = 0.0; Add = (+); Multiply = (*)}
 
 let toWordR = string

@@ -52,6 +52,8 @@ type ExtendedRealTests () =
         extendedRealSemiring.Add Indeterminacy extendedRealSemiring.IdentityElement |> should equal Indeterminacy
         extendedRealSemiring.Add extendedRealSemiring.IdentityElement Indeterminacy |> should equal Indeterminacy
 
+    // Все, что тестирует сложение в полугруппе, тестирует умножение в полукольце.
+
     [<TestCase(1.01010101, 0.0)>]
     [<TestCase(-3.14, 7.77)>]
     [<TestCase(-6.5, 6.5)>]
@@ -82,3 +84,21 @@ type ExtendedRealTests () =
     [<Test>]
     member _.testMultiplicationWithInd () =
         List.map (extendedRealSemiring.Multiply Indeterminacy) xs |> should equal inds
+
+    [<TestCase(1.01010101, 0.0)>]
+    [<TestCase(-3.14, 7.77)>]
+    [<TestCase(-6.5, 6.5)>]
+    member _.testLessOrEqual (x, y) =
+        let x', y' = Real x, Real y
+        extendedRealSemigroupWithPartialOrder.Le x' y' |> should equal <| (x <= y)
+
+    [<Test>]
+    member _.testLessOrEqualInd () =
+        let res = List.map (extendedRealSemigroupWithPartialOrder.Le Indeterminacy) xs
+        List.forall ((=) false) res |> should equal true
+
+    [<Test>]
+    member _.testLessOrEqualInf () =
+        let res = List.map (extendedRealSemigroupWithPartialOrder.Le Infinity) xs
+        let expected = [false; true; false; false; false]
+        expected |> should equal res

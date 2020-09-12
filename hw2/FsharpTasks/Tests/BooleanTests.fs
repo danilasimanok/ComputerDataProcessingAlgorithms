@@ -31,7 +31,15 @@ type BooleanTests () =
 
     [<Test>]
     member _.testMultiplication () =
+        // оно же booleanSemigroupWithPartialOrder.Multiply
         booleanSemiring.Multiply true true |> should equal true
         booleanSemiring.Multiply true false |> should equal false
         booleanSemiring.Multiply false true |> should equal false
         booleanSemiring.Multiply false false |> should equal false
+
+    [<Test>]
+    member _.testLessOrEqual () =
+        booleanSemigroupWithPartialOrder.Le true true |> should equal true
+        booleanSemigroupWithPartialOrder.Le true false |> should equal true
+        booleanSemigroupWithPartialOrder.Le false true |> should equal false
+        booleanSemigroupWithPartialOrder.Le false false |> should equal true

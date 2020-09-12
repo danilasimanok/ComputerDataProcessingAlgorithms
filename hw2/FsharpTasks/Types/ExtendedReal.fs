@@ -41,6 +41,17 @@ let inline (=!) x y =
     | _, Infinity -> false
     | Real x, Real y -> x =! y
 
+let internal le x y =
+    match x, y with
+    | Indeterminacy, _ -> false
+    | _, Indeterminacy -> false
+    | Infinity, Infinity -> true
+    | Infinity, _ -> false
+    | _, Infinity -> true
+    | Real x, Real y -> x <= y
+
+let extendedRealSemigroupWithPartialOrder = {Multiply = add; Le = le}
+
 let extendedRealSemiring = {IdentityElement = Real 0.0; Add = add; Multiply = multiply}
 
 let toWordER x =

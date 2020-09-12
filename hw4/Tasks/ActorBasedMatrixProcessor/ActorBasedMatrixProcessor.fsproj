@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="MyFailings.fs" />
+    <Compile Include="Messages.fs" />
+    <Compile Include="Controller.fs" />
+    <Compile Include="GeneralActor.fs" />
+    <Compile Include="Actors.fs" />
+    <Compile Include="ConcreteActors.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Railway\Railway.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FsMatrix">
+      <HintPath>..\..\..\hw2\FsharpTasks\FsMatrix\bin\Debug\netcoreapp3.1\FsMatrix.dll</HintPath>
+    </Reference>
+    <Reference Include="MatrixGenerator">
+      <HintPath>..\..\..\hw3\Tasks\MatrixGenerator\bin\Debug\netcoreapp3.1\MatrixGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="Types">
+      <HintPath>..\..\..\hw2\FsharpTasks\Types\bin\Debug\netcoreapp3.1\Types.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
