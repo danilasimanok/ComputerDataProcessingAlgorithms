@@ -2,16 +2,15 @@ module Tests
 
 open NUnit.Framework
 open FsUnit
-
+open Integer
 open FsMatrix.Matrix
 
 [<TestFixture>]
 type MatrixTests() =
     
-    let sr = {IdentityElement = 0; Add = (+); Multiply = (*)}
     let sg = {Multiply = (+); Le = (<=)}
 
-    let multiply = multiply sr
+    let multiply = multiply integerSemiring
     let floydWarshall = floydWarshall sg
 
     [<Test>]

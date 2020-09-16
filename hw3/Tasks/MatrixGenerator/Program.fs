@@ -5,6 +5,10 @@ open Types
 open Random
 open FsMatrix.MatrixIO
 open System.IO
+open Boolean
+open Integer
+open Real
+open ExtendedReal
 
 type Arguments =
     | [<Mandatory>] T of elementType : ElementType
@@ -41,10 +45,10 @@ let main argv =
         let path = Path.Combine (path, "matrix")
         let action x =
             match elementType with
-            | REAL -> writeRowsList string (randomLists randomReal size) (path + string x)
-            | EXTENDED_REAL -> writeRowsList toWord (randomLists randomExtendedReal size) (path + string x)
-            | BOOLEAN -> writeRowsList string (randomLists randomBoolean size) (path + string x)
-            | INTEGER -> writeRowsList string (randomLists randomInteger size) (path + string x)
+            | REAL -> writeRowsList toWordR (randomLists randomReal size) (path + string x)
+            | EXTENDED_REAL -> writeRowsList toWordER (randomLists randomExtendedReal size) (path + string x)
+            | BOOLEAN -> writeRowsList toWordB (randomLists randomBoolean size) (path + string x)
+            | INTEGER -> writeRowsList toWordI (randomLists randomInteger size) (path + string x)
         Seq.iter action range
     with e -> eprintfn "%s" e.Message
     0

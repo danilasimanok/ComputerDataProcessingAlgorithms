@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Boolean.fs" />
+    <Compile Include="Integer.fs" />
+    <Compile Include="Real.fs" />
+    <Compile Include="ExtendedReal.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FsMatrix\FsMatrix.fsproj" />
+  </ItemGroup>
+
+</Project>

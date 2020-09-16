@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Helpers.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Argu" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MatrixParallel\MatrixParallel.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FsMatrix">
+      <HintPath>..\..\..\hw2\FsharpTasks\FsMatrix\bin\Debug\netcoreapp3.1\FsMatrix.dll</HintPath>
+    </Reference>
+    <Reference Include="MatrixGenerator">
+      <HintPath>..\..\..\hw3\Tasks\MatrixGenerator\bin\Debug\netcoreapp3.1\MatrixGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="Types">
+      <HintPath>..\..\..\hw2\FsharpTasks\Types\bin\Debug\netcoreapp3.1\Types.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
