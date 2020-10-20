@@ -20,13 +20,13 @@
 
   <ItemGroup>
     <Reference Include="FsMatrix">
-      <HintPath>..\..\..\hw2\FsharpTasks\FsMatrix\bin\Debug\netcoreapp3.1\FsMatrix.dll</HintPath>
+      <HintPath>..\..\..\hw2\FsharpTasks\FsMatrix\bin\Debug\netstandard2.0\FsMatrix.dll</HintPath>
     </Reference>
     <Reference Include="MatrixGenerator">
       <HintPath>..\..\..\hw3\Tasks\MatrixGenerator\bin\Debug\netcoreapp3.1\MatrixGenerator.dll</HintPath>
     </Reference>
     <Reference Include="Types">
-      <HintPath>..\..\..\hw2\FsharpTasks\Types\bin\Debug\netcoreapp3.1\Types.dll</HintPath>
+      <HintPath>..\..\..\hw2\FsharpTasks\Types\bin\Debug\netstandard2.0\Types.dll</HintPath>
     </Reference>
   </ItemGroup>
 

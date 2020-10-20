@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net472</TargetFramework> 
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="MatrixGPU.fs" />
+    <None Include="Script.fsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Brahma.FSharp" Version="1.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FsMatrix">
+      <HintPath>..\..\..\hw2\FsharpTasks\FsMatrix\bin\Debug\netstandard2.0\FsMatrix.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.0" />
+  </ItemGroup>
+</Project>
