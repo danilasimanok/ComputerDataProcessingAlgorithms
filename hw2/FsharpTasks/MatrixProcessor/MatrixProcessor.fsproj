@@ -24,7 +24,7 @@
       <HintPath>..\..\CsharpTasks\Matrix\bin\Debug\netcoreapp3.1\Matrix.dll</HintPath>
     </Reference>
     <Reference Include="TransitiveClosure">
-      <HintPath>..\..\CsharpTasks\TransitiveClosure\obj\Debug\netcoreapp3.1\TransitiveClosure.dll</HintPath>
+      <HintPath>..\..\CsharpTasks\TransitiveClosure\bin\Debug\netcoreapp3.1\TransitiveClosure.dll</HintPath>
     </Reference>
   </ItemGroup>
 

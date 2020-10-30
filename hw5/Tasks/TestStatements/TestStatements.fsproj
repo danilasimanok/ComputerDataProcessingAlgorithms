@@ -1,33 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net472</TargetFramework> 
+
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Helpers.fs" />
-    <Compile Include="Program.fs" />
+    <Compile Include="TestStatements.fs" />
+    <None Include="Script.fsx" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Argu" Version="6.0.0" />
+    <PackageReference Include="Brahma.FSharp" Version="1.1.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MatrixParallel\MatrixParallel.fsproj" />
+    <ProjectReference Include="..\MatrixGPU\MatrixGPU.fsproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="FsMatrix">
       <HintPath>..\..\..\hw2\FsharpTasks\FsMatrix\bin\Debug\netstandard2.0\FsMatrix.dll</HintPath>
     </Reference>
-    <Reference Include="MatrixGenerator">
-      <HintPath>..\..\..\hw3\Tasks\MatrixGenerator\bin\Debug\netcoreapp3.1\MatrixGenerator.dll</HintPath>
-    </Reference>
     <Reference Include="Types">
       <HintPath>..\..\..\hw2\FsharpTasks\Types\bin\Debug\netstandard2.0\Types.dll</HintPath>
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.0" />
+  </ItemGroup>
 </Project>
